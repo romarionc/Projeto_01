@@ -5,27 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONG - Comida para todos</title>
-  <link rel="stylesheet" href="css/style_cadastro.css">
+  <!-- não utilizar css nesse primeiro momento -->
+  <!-- <link rel="stylesheet" href="css/style_cadastro.css"> -->
 </head>
 
 <body>
-
+  <!-- parte superior da pagina -->
   <header>
     <h1>ONG - Comida para todos</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="index.html">Página inicial</a></li>
+        <li><a href="projetos.html">Projetos sociais</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
   </header>
-
+  <!-- parte central da pagina -->
   <main>
     <!-- atendendo ao requisito formulario, input, validdor e agrupamento logico -->
     <section>
       <h2>Formulario para volutarios</h2>
-      <form action="">
+      <form>
         <fieldset>
           <legend>Informações Pessoais</legend>
           <br>
@@ -64,7 +65,7 @@
           <input type="text" id="cidade" name="cidade" required>
           <!-- Estado -->
           <label for="estado">Estado:</label>
-          <select name="situacao" id="situacao">
+          <select name="estado" id="estado">
             <option value=" " selected disabled>selecione uma das opções</option>
             <option value="AC">AC</option>
             <option value="AL">AL</option>
@@ -104,7 +105,9 @@
   </main>
 
   <footer>
-
+    <br>
+    <p> &copy; 2025 ONG - Comidas para todos</p>
+    <br>
   </footer>
 </body>
 
