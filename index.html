@@ -9,40 +9,59 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/logo_16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/logo_32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/logo_180x180.png">
+  <link rel="stylesheet" href="css/style_index.css">
   <!-- não utilizar css nesse primeiro momento -->
   <!-- <link rel="stylesheet" href="css/style_index.css"> -->
 </head>
 
 <body>
   <header>
-    <h1>ONG - Comida para todos</h1>
+    <a href="index.html" class="logo">
+      <h1>ONG - Comida para todos</h1>
+    </a>
+
+    <button id="btn-hamburguer" class="menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+      <span class="hamburguer-linha"></span>
+      <span class="hamburguer-linha"></span>
+      <span class="hamburguer-linha"></span>
+    </button>
+
     <nav>
-      <ul>
+      <ul id="menu-principal">
         <li><a href="index.html">Página inicial</a></li>
-        <li><a href="projetos.html">Projetos sociais</a></li>
+
+        <li class="dropdown">
+          <a href="projetos.html">Projetos sociais</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Distribuição de Cestas</a></li>
+            <li><a href="#">Cozinha Comunitária</a></li>
+            <li><a href="#">Horta Solidária</a></li>
+          </ul>
+        </li>
+
         <li><a href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- atendendo ao requisito: falar sobre a organização -->
-    <section>
-      <h2> Quem somos</h2>
-      <p>A <strong> Comida para Todos </strong> é uma organização não governamental (ONG) sem fins lucrativos, nascida da união de cidadãos com o propósito de combater a fome e a insegurança alimentar em nossa comunidade. Acreditamos que o acesso à alimentação de qualidade é um direito humano fundamental e um pilar para a dignidade.</p>
-      <img src="img/quentinha.jpeg" alt="preparação de marmita">
-    </section>
-    <!-- atendendo ao requisito: informações de contato -->
-    <section>
-      <h3>Fale conosco!</h3>
-      <address>
-        <p>endereço: Avenida João Pessoa 6943, bairro: Parangaba, cep: 60710-735</p>
-        <p>Foraleza, CE</p>
-        <p>telefone: (85) 99881-5658</p>
-        <p>email: foodforall@foodforall.com</p>
-      </address>
-    </section>
+    <div class="grid-container">
+      <section class="col-span-12 col-md-7">
+        <h2> Quem somos</h2>
+        <p>A <strong> Comida para Todos </strong> é uma organização não governamental (ONG) sem fins lucrativos, nascida da união de cidadãos com o propósito de combater a fome e a insegurança alimentar em nossa comunidade. Acreditamos que o acesso à alimentação de qualidade é um direito humano fundamental e um pilar para a dignidade.</p>
+        <img src="img/quentinha.jpeg" alt="preparação de marmita">
+      </section>
 
+      <section class="col-span-12 col-md-5">
+        <h3>Fale conosco!</h3>
+        <address>
+          <p>endereço: Avenida João Pessoa 6943, bairro: Parangaba, cep: 60710-735</p>
+          <p>Fortaleza, CE</p>
+          <p>telefone: (85) 99881-5658</p>
+          <p>email: foodforall@foodforall.com</p>
+        </address>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -50,7 +69,7 @@
     <p> &copy; 2025 ONG - Comida para todos</p>
     <br>
   </footer>
-
+  <script src="js/main.js"></script>
 </body>
 
 </html>

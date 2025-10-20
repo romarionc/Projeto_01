@@ -1,4 +1,563 @@
+/* ============================================= */
+/* DESIGN SYSTEM: ONG Comida para Todos          */
+/* ============================================= */
+
+/* --------------------------------------------- */
+/* 1. VARIÁVEIS GLOBAIS (CUSTOM PROPERTIES)      */
+/* --------------------------------------------- */
+:root {
+  /* 1.1 PALETA DE CORES (Total: 8 cores) */
+  /* Cores Primárias: Transmitem energia, confiança e ação */
+  --color-primary: #ff7a00; /* Laranja vibrante para botões e links */
+  --color-secondary: #005a9c; /* Azul escuro para títulos e destaques */
+
+  /* Cores Neutras: Para texto, fundos e bordas */
+  --color-text-primary: #212529; /* Cinza muito escuro para texto principal */
+  --color-text-secondary: #6c757d; /* Cinza médio para textos de apoio */
+  --color-background: #f8f9fa; /* Cinza muito claro para o fundo da página */
+  --color-surface: #ffffff; /* Branco para caixas de conteúdo (cards, seções) */
+  --color-border: #dee2e6; /* Cinza claro para bordas e divisórias */
+
+  /* Cor de Acento/Feedback */
+  --color-success: #28a745; /* Verde para mensagens de sucesso (ex: doação concluída) */
+
+  /* 1.2 TIPOGRAFIA */
+  /* Família da Fonte */
+  --font-family-base: "Nunito Sans", system-ui, -apple-system, sans-serif;
+
+  /* Tamanhos Hierárquicos (Mínimo: 5) */
+  --font-size-h1: 2.5rem; /* 40px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h3: 1.5rem; /* 24px */
+  --font-size-body: 1.125rem; /* 18px */
+  --font-size-small: 0.875rem; /* 14px */
+
+  /* Pesos da Fonte */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Altura da Linha para melhor legibilidade */
+  --line-height-base: 1.6;
+
+  /* 1.3 SISTEMA DE ESPAÇAMENTO MODULAR (Base: 8px) */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-s: 1rem; /* 16px */
+  --spacing-m: 1.5rem; /* 24px */
+  --spacing-l: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-xxl: 4rem; /* 64px */
+}
+
+/* --------------------------------------------- */
+/* 2. RESET BÁSICO E ESTILOS GLOBAIS             */
+/* --------------------------------------------- */
+
+/* Define o tamanho da fonte raiz para 16px, facilitando o uso de 'rem' */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+/* Garante que padding e border não afetem o tamanho final do elemento */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------- */
+/* 3. APLICAÇÃO DA HIERARQUIA DE TIPOGRAFIA      */
+/* --------------------------------------------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  margin-top: var(--spacing-m);
+  margin-bottom: var(--spacing-s);
+}
+
 h1 {
-  background-color: blue;
-  color: antiquewhite;
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-s);
+}
+
+a {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------- */
+/* 4. EXEMPLOS DE USO DO ESPAÇAMENTO             */
+/* --------------------------------------------- */
+
+/* Aplicando espaçamento no layout principal */
+header,
+main,
+footer {
+  /* Define uma largura máxima e centraliza o conteúdo */
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Espaçamento interno */
+  padding: var(--spacing-l);
+}
+
+main section {
+  /* Espaçamento entre as seções */
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-l);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--spacing-xs);
+}
+
+header {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-m);
+}
+
+footer {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--spacing-xl);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Coloca os itens lado a lado */
+  gap: var(--spacing-m); /* Espaçamento entre os itens do menu */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--spacing-xs);
+}
+body {
+  min-height: 100vh; /* Garante que o body ocupe no mínimo a altura da tela */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, main (flexível), footer */
+}
+
+/* Centraliza o conteúdo principal e evita que ele fique muito largo em telas grandes */
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 1200px; /* Largura máxima do conteúdo */
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--spacing-l);
+}
+
+/* --------------------------------------------- */
+/* 5.2 FLEXBOX PARA COMPONENTES INTERNOS         */
+/* --------------------------------------------- */
+header {
+  display: flex;
+  flex-direction: column; /* Em telas pequenas: logo/título em cima, menu embaixo */
+  align-items: center; /* Centraliza tudo */
+  gap: var(--spacing-m);
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap; /* Permite que o menu quebre a linha se não couber */
+  justify-content: center;
+  gap: var(--spacing-m);
+}
+
+address {
+  font-style: normal; /* Remove o itálico padrão da tag <address> */
+}
+
+/* --------------------------------------------- */
+/* 5.3 SISTEMA DE GRID CUSTOMIZADO (12 Colunas)  */
+/* --------------------------------------------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-m);
+}
+
+/* Classes para controlar o span de colunas (base para mobile) */
+.col-span-1 {
+  grid-column: span 1;
+}
+.col-span-2 {
+  grid-column: span 2;
+}
+.col-span-3 {
+  grid-column: span 3;
+}
+.col-span-4 {
+  grid-column: span 4;
+}
+.col-span-5 {
+  grid-column: span 5;
+}
+.col-span-6 {
+  grid-column: span 6;
+}
+.col-span-7 {
+  grid-column: span 7;
+}
+.col-span-8 {
+  grid-column: span 8;
+}
+.col-span-9 {
+  grid-column: span 9;
+}
+.col-span-10 {
+  grid-column: span 10;
+}
+.col-span-11 {
+  grid-column: span 11;
+}
+.col-span-12 {
+  grid-column: span 12;
+}
+
+/* --------------------------------------------- */
+/* 5.4 BREAKPOINTS RESPONSIVOS (Mobile-First)    */
+/* --------------------------------------------- */
+
+/* Breakpoint 1: Small (sm) - 576px (Celulares em modo paisagem) */
+@media (min-width: 576px) {
+  /* Classes de grid para telas pequenas e maiores */
+  .col-sm-1 {
+    grid-column: span 1;
+  }
+  .col-sm-2 {
+    grid-column: span 2;
+  }
+  .col-sm-3 {
+    grid-column: span 3;
+  }
+  .col-sm-4 {
+    grid-column: span 4;
+  }
+  .col-sm-5 {
+    grid-column: span 5;
+  }
+  .col-sm-6 {
+    grid-column: span 6;
+  }
+  .col-sm-7 {
+    grid-column: span 7;
+  }
+  .col-sm-8 {
+    grid-column: span 8;
+  }
+  .col-sm-9 {
+    grid-column: span 9;
+  }
+  .col-sm-10 {
+    grid-column: span 10;
+  }
+  .col-sm-11 {
+    grid-column: span 11;
+  }
+  .col-sm-12 {
+    grid-column: span 12;
+  }
+}
+
+/* Breakpoint 2: Medium (md) - 768px (Tablets) */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row; /* Em telas médias: logo/título à esquerda, menu à direita */
+    justify-content: space-between; /* Espaça os itens */
+  }
+
+  /* Classes de grid para telas médias e maiores */
+  .col-md-1 {
+    grid-column: span 1;
+  }
+  .col-md-2 {
+    grid-column: span 2;
+  }
+  .col-md-3 {
+    grid-column: span 3;
+  }
+  .col-md-4 {
+    grid-column: span 4;
+  }
+  .col-md-5 {
+    grid-column: span 5;
+  }
+  .col-md-6 {
+    grid-column: span 6;
+  }
+  .col-md-7 {
+    grid-column: span 7;
+  }
+  .col-md-8 {
+    grid-column: span 8;
+  }
+  .col-md-9 {
+    grid-column: span 9;
+  }
+  .col-md-10 {
+    grid-column: span 10;
+  }
+  .col-md-11 {
+    grid-column: span 11;
+  }
+  .col-md-12 {
+    grid-column: span 12;
+  }
+}
+
+/* Breakpoint 3: Large (lg) - 992px (Desktops) */
+@media (min-width: 992px) {
+  /* Aumenta um pouco o tamanho da fonte base em telas maiores para melhor leitura */
+  body {
+    font-size: 1.1rem;
+  }
+
+  /* Classes de grid para telas grandes e maiores */
+  .col-lg-1 {
+    grid-column: span 1;
+  }
+  .col-lg-2 {
+    grid-column: span 2;
+  }
+  .col-lg-3 {
+    grid-column: span 3;
+  }
+  .col-lg-4 {
+    grid-column: span 4;
+  }
+  .col-lg-5 {
+    grid-column: span 5;
+  }
+  .col-lg-6 {
+    grid-column: span 6;
+  }
+  .col-lg-7 {
+    grid-column: span 7;
+  }
+  .col-lg-8 {
+    grid-column: span 8;
+  }
+  .col-lg-9 {
+    grid-column: span 9;
+  }
+  .col-lg-10 {
+    grid-column: span 10;
+  }
+  .col-lg-11 {
+    grid-column: span 11;
+  }
+  .col-lg-12 {
+    grid-column: span 12;
+  }
+}
+
+/* Breakpoint 4: Extra Large (xl) - 1200px (Desktops grandes) */
+@media (min-width: 1200px) {
+  /* Classes de grid para telas extra grandes */
+  .col-xl-1 {
+    grid-column: span 1;
+  }
+  .col-xl-2 {
+    grid-column: span 2;
+  }
+  .col-xl-3 {
+    grid-column: span 3;
+  }
+  .col-xl-4 {
+    grid-column: span 4;
+  }
+  .col-xl-5 {
+    grid-column: span 5;
+  }
+  .col-xl-6 {
+    grid-column: span 6;
+  }
+  .col-xl-7 {
+    grid-column: span 7;
+  }
+  .col-xl-8 {
+    grid-column: span 8;
+  }
+  .col-xl-9 {
+    grid-column: span 9;
+  }
+  .col-xl-10 {
+    grid-column: span 10;
+  }
+  .col-xl-11 {
+    grid-column: span 11;
+  }
+  .col-xl-12 {
+    grid-column: span 12;
+  }
+}
+
+.logo h1 {
+  font-size: 1.5rem; /* Ajusta o tamanho do logo em mobile */
+  margin: 0;
+}
+
+.menu-hamburguer {
+  display: flex; /* Visível por padrão em mobile */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200; /* Garante que fique acima de outros elementos */
+}
+
+.hamburguer-linha {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Esconde o menu de navegação por padrão em mobile */
+#menu-principal {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Começa fora da tela */
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--color-surface);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-l);
+
+  transition: right 0.4s ease-in-out;
+  z-index: 100;
+}
+
+/* Classe que será adicionada via JS para abrir o menu */
+#menu-principal.nav-open {
+  right: 0;
+}
+
+/* Oculta o submenu por padrão em mobile */
+.dropdown-menu {
+  display: none;
+}
+
+/* --------------------------------------------- */
+/* 6.2 ESTILOS DESKTOP (A partir de 992px)       */
+/* --------------------------------------------- */
+@media (min-width: 992px) {
+  .menu-hamburguer {
+    display: none; /* Esconde o botão hambúrguer em telas grandes */
+  }
+
+  /* Restaura o menu principal para o fluxo normal do documento */
+  #menu-principal {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    right: 0; /* Reseta a posição */
+    gap: var(--spacing-m);
+  }
+
+  #menu-principal a {
+    padding: var(--spacing-xs) var(--spacing-s);
+  }
+
+  /* ESTILOS DO DROPDOWN */
+  .dropdown {
+    position: relative; /* Contexto de posicionamento para o submenu */
+  }
+
+  .dropdown > a::after {
+    content: " ▼"; /* Adiciona uma seta para indicar o dropdown */
+    font-size: 0.7em;
+    display: inline-block;
+    margin-left: var(--spacing-xs);
+  }
+
+  .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--spacing-xs);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: var(--spacing-s);
+    margin: 0;
+    width: 220px;
+    z-index: 300;
+
+    /* Animação de entrada */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  .dropdown-menu a {
+    font-weight: var(--font-weight-regular);
+  }
+
+  /* Mostra o dropdown no hover */
+  .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
