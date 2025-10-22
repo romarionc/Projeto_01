@@ -67,12 +67,16 @@ Código fonte completo, com estrutura organizada e sem erros de validação (W3C
 
 Imagens otimizadas, respeitando boas práticas de desempenho.
 
+Link do projeto funcional:
+
+[clique aqui](https://romarionc.github.io/Projeto_01/)
+
 👨‍💻 Autor
 
 Desenvolvido por Romário Costa
 
 📧 E-mail: nc.romario@gmail.com
 
-💼 LinkedIn: linkedin.com/in/romario-costa-345664207
+💼 [LinkedIn](linkedin.com/in/romario-costa-345664207)
 
-🌐 GitHub: github.com/romariocosta
+🌐 [GitHub](github.com/romariocosta)
