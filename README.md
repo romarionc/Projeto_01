@@ -79,4 +79,4 @@ Desenvolvido por Romário Costa
 
 💼 [LinkedIn](linkedin.com/in/romario-costa-345664207)
 
-🌐 [GitHub](https://github.com/romarionc/))
+🌐 [GitHub](https://github.com/romarionc/)
